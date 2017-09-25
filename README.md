@@ -2,10 +2,10 @@
 Day 1 of the Front-End/Back-End project
 - Katie and Tivona have wire-framed the Front-End portion of the project.
 - Katie and Tivona have identified the components needed for the Front-End.  
-- Katie and Tivona will complete the Home component today, 9-25-17.
+- Katie and Tivona will complete the PostList component today, 9-25-17.
 - Katie will work on the PostQuestion and PostAnswer components.
 - Tivona will work on the SignUp and Login components.
-- Once the other components are complete, we will work on the PostDetail component together. 
+- Once the other components are complete, we will work on the PostDetail component together.
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).

@@ -14,11 +14,14 @@ import PostList from './Components/PostList.js';
 import BaseLayout from './Components/Layout.js';
 import Login from './Components/Login.js';
 import Signup from './Components/Signup.js';
+import PostDetail from './Components/PostDetail.js';
+
 
 ReactDOM.render(
   <BrowserRouter>
     <BaseLayout>
       <Switch>
+        <Route path='/post_detail' component={PostDetail} />
         <Route path='/signup' component={Signup} />
         <Route path='/login' component={Login} />
         <Route path='/' component={PostList} />

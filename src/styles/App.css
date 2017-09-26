@@ -31,3 +31,7 @@
 .card-title {
   color: steelblue;
 }
+
+.btn-group-lg>.btn, .btn-lg {
+  margin: 15px;
+}

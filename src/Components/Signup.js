@@ -6,7 +6,7 @@ export default class Signup extends Component {
     return (
       <div>
         <form >
-          <h4> Sign up for a free Account </h4>
+          <h2> Sign up for a free Account </h2>
           <label htmlFor="display-name">Display Name: </label>
           <input type="text" className="form-control input-default" id="display-name" placeholder="Display Name" />
           <label htmlFor="email">Email: </label>

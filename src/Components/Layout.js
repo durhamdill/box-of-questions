@@ -1,19 +1,18 @@
 import React, { Component } from 'react';
 import '../styles/App.css';
-import PostList from './PostList.js';
-import Header from './Header.js';
+import { Link } from 'react-router-dom';
+import Header from '../Components/Header.js';
 
-class App extends Component {
+
+export default class BaseLayout extends Component {
   render() {
     return (
       <div className="App">
         <div className="PostList">
           <Header />
-          <PostList />
+          {this.props.children}
         </div>
       </div>
     );
   }
 }
-
-export default App;

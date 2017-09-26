@@ -6,7 +6,7 @@ export default class Login extends Component {
     return (
       <div>
         <form >
-          <h4> Login </h4>
+          <h2> Login </h2>
           <label htmlFor="email">Email: </label>
           <input type="text" className="form-control input-default" id="email" placeholder="Email" />
           <label htmlFor="password">Password: </label>

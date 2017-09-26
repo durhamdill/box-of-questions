@@ -13,6 +13,7 @@ Day 2 of the Front-End/Back-End project
 - Adding routes for Home view, SignUp, and login.
 - Meet with Back-End
 
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>

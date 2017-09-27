@@ -2,16 +2,49 @@ import React, {Component} from 'react';
 import '../styles/App.css';
 
 export default class Login extends Component {
+  constructor() {
+    super();
+    this.state = {
+      email: '',
+      password: '',
+      token: '',
+      error: ''
+    }
+  }
+    updateLogin(stateKey) {
+      return (event) => {
+        this.setState({[stateKey]: event.target.value});
+      }
+    }
+
+    login(event) {
+      let setToken =this.props.setToken;
+
+      event.preventDefault();
+      request
+        .post("https://desolate-harbor-53073.herokuapp.com/api/users/login/")
+        .send({email: this.state.email, password: this.state.password})
+        .end((err, res) => {
+          if (err) {
+            this.setState({error: res.body.error});
+          } else {
+            setToken(res.body.token);
+          }
+        })
+    }
+
   render() {
     return (
-      <div>
+      <div className="userLogin">
+      {this.state.error && <div className="alert">{this.state.error}</div>}
         <form >
           <h2> Login </h2>
           <label htmlFor="email">Email: </label>
-          <input type="text" className="form-control input-default" id="email" placeholder="Email" />
+          <input type="email" className="form-control input-default" id="email" placeholder="Email" onChange={this.updateLogin('email')} value={this.state.email}/>
           <label htmlFor="password">Password: </label>
-          <input type="text" className="form-control input-default" id="password" placeholder="Password" />
-          <input className="btn btn-primary btn-lg" type="submit" value="Login"/>
+          <input type="password" className="form-control input-default" id="password" placeholder="Password" onChange={this.updateLogin('password')}
+                        value={this.state.password}/>
+          <input className="btn btn-primary btn-lg" type="submit" value="Login" onClick={event => this.login(event)}/>
         </form>
       </div>
     )

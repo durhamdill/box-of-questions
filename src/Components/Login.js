@@ -21,7 +21,7 @@ export default class Login extends Component {
     }
 
     login(event) {
-      let setToken =this.props.setToken;
+      
       console.log(this.state.email, this.state.password);
 
       event.preventDefault();
@@ -32,8 +32,9 @@ export default class Login extends Component {
             if (err) {
               this.setState({error: res.body.error});
             } else {
-              setToken(res.body.token);
+              this.setState({token: res.body.token});
             }
+            console.log(this.state.token);
           })
         }
 

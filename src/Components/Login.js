@@ -22,10 +22,11 @@ export default class Login extends Component {
 
     login(event) {
       let setToken =this.props.setToken;
+      console.log(this.state.email, this.state.password);
 
       event.preventDefault();
         request
-          .post("https://serene-waters-86956.herokuapp.com/posts/")
+          .post("https://serene-waters-86956.herokuapp.com/users/login")
           .send({email: this.state.email, password: this.state.password})
           .end((err, res) => {
             if (err) {

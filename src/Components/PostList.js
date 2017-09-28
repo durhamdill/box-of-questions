@@ -30,7 +30,7 @@ class PostList extends Component {
               <Link to="/signup">  <input className="btn btn-secondary" type="submit" value="Sign Up"/></Link>
                 <input className="btn btn-secondary" type="submit" value="Post a Question"/>
                 <div className="post-list" onLoad={this.fetchData}>
-                  {this.state.posts.map((post) => <PostItem post={post} key={post._id} />)}
+                  {this.state.posts.map((post) => <PostItem post={post} key={post.id} />)}
                 </div>
               </div>
 

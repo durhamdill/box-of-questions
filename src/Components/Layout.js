@@ -18,6 +18,7 @@ export default class BaseLayout extends Component {
 
     componentWillMount() {
       this.setState({token: cookie.load('token')});
+      console.log(cookie);
     }
 
     setToken(token) {

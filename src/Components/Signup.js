@@ -3,6 +3,9 @@ import '../styles/App.css';
 import Layout from '../Components/Layout.js'
 import request from 'superagent';
 import {Link} from 'react-router-dom';
+import {BrowserRouter} from 'react-router-dom';
+import {Redirect} from 'react-router';
+
 
 
 
@@ -13,7 +16,8 @@ export default class Signup extends Component {
       username : '',
       email: '',
       password: '',
-      error: ''
+      error: '',
+      redirect: false
     }
     this.updateSignup = this.updateSignup.bind(this);
   }
@@ -24,6 +28,7 @@ export default class Signup extends Component {
   }
   signup(event) {
 console.log(this.state);
+  let {redirect} = this.state;
   let newUser = ({user: {username: this.state.username, email: this.state.email, password: this.state.password }});
   console.log(newUser);
     event.preventDefault();
@@ -32,10 +37,11 @@ console.log(this.state);
       .send(newUser)
       .end((err, res) => {
         if (err) {
-          console.log("error");
+          this.setState({error: res.body.error});
         } else {
-          console.log("success");;
+          this.setState({token: res.body.token});
         }
+        console.log(this.state.token);
 
       })
   }
@@ -43,6 +49,7 @@ console.log(this.state);
   render() {
     return (
       <div>
+        {this.state.error && <div className="alert">{this.state.error}</div>}
         <form >
           <h2> Sign up for a free Account </h2>
           <label htmlFor="display-name">Display Name: </label>

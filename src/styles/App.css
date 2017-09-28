@@ -13,6 +13,16 @@
   height: 80px;
   padding: 20px;
   color: white;
+  display: flex;
+  justify-content: center;
+}
+
+.App-header img {
+  margin-right: 20px;
+}
+
+.App-header h1 {
+  font-family: 'Sedgwick Ave', cursive;
 }
 
 .App-intro {

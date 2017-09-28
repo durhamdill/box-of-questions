@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import '../styles/App.css';
 import Layout from '../Components/Layout.js'
 import request from 'superagent';
+import {Link} from 'react-router-dom';
+
 
 
 export default class Signup extends Component {
@@ -13,7 +15,7 @@ export default class Signup extends Component {
       password: '',
       error: ''
     }
-    this.updateLogin = this.updateLogin.bind(this);
+    this.updateSignup = this.updateSignup.bind(this);
   }
   updateSignup(stateKey) {
     return (event) => {
@@ -21,17 +23,20 @@ export default class Signup extends Component {
     }
   }
   signup(event) {
-
+console.log(this.state);
+  let newUser = ({user: {username: this.state.username, email: this.state.email, password: this.state.password }});
+  console.log(newUser);
     event.preventDefault();
-    request()
-      .post("https://desolate-harbor-53073.herokuapp.com/api/users/signup/")
-      .send({email: this.state.email, password: this.state.password})
+    request
+      .post("https://serene-waters-86956.herokuapp.com/users/")
+      .send(newUser)
       .end((err, res) => {
         if (err) {
-          this.setState({error: res.body.error});
+          console.log("error");
         } else {
-          this.setToken(res.body.token);
+          console.log("success");;
         }
+
       })
   }
 
@@ -41,14 +46,16 @@ export default class Signup extends Component {
         <form >
           <h2> Sign up for a free Account </h2>
           <label htmlFor="display-name">Display Name: </label>
-          <input type="text" className="form-control input-default" id="display-name" placeholder="Display Name" />
+          <input type="text" className="form-control input-default" id="username" placeholder="Display Name" onChange={this.updateSignup('username')} value={this.state.username}/>
           <label htmlFor="email">Email: </label>
-          <input type="text" className="form-control input-default" id="email" placeholder="Email" onChange={this.updateLogin('email')} value={this.state.email} />
+          <input type="text" className="form-control input-default" id="email" placeholder="Email" onChange={this.updateSignup('email')} value={this.state.email} />
           <label htmlFor="password">Password: </label>
-          <input type="text" className="form-control input-default" id="password" placeholder="Password" onChange={this.updateLogin('password')}
+          <input type="password" className="form-control input-default" id="password" placeholder="Password" onChange={this.updateSignup('password')}
                         value={this.state.password}/>
           <input className="btn btn-primary btn-lg" type="submit" value="signup" onClick={event => this.signup(event)}/>
         </form>
+        <p> Already have an Account? <Link to="/login">Log In</Link></p>
+
       </div>
 
     )

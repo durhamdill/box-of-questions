@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import '../styles/App.css';
 import Layout from '../Components/Layout.js';
 import request from 'superagent';
+import {Link} from 'react-router-dom';
 
 
 export default class Login extends Component {
@@ -21,7 +22,7 @@ export default class Login extends Component {
     }
 
     login(event) {
-      
+
       console.log(this.state.email, this.state.password);
 
       event.preventDefault();
@@ -51,6 +52,8 @@ export default class Login extends Component {
                         value={this.state.password}/>
           <input className="btn btn-primary btn-lg" type="submit" value="Login" onClick={event => this.login(event)}/>
         </form>
+        <p> Don&#39;t have an Account? <Link to="/signup">Sign Up</Link></p>
+
       </div>
     )
   }

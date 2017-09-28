@@ -1,5 +1,8 @@
 import React, {Component} from 'react';
 import '../styles/App.css';
+import Layout from '../Components/Layout.js';
+import request from 'superagent';
+
 
 export default class Login extends Component {
   constructor() {
@@ -21,17 +24,17 @@ export default class Login extends Component {
       let setToken =this.props.setToken;
 
       event.preventDefault();
-      request
-        .post("https://desolate-harbor-53073.herokuapp.com/api/users/login/")
-        .send({email: this.state.email, password: this.state.password})
-        .end((err, res) => {
-          if (err) {
-            this.setState({error: res.body.error});
-          } else {
-            setToken(res.body.token);
-          }
-        })
-    }
+        request
+          .post("https://serene-waters-86956.herokuapp.com/posts/")
+          .send({email: this.state.email, password: this.state.password})
+          .end((err, res) => {
+            if (err) {
+              this.setState({error: res.body.error});
+            } else {
+              setToken(res.body.token);
+            }
+          })
+        }
 
   render() {
     return (

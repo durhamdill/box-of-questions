@@ -24,15 +24,19 @@ export default class BaseLayout extends Component {
       this.setState({token: token});
       cookie.save('token', token);
     }
-    
+
+
+
   render() {
+    
     return (
       <div className="App">
-        <div className="PostList">
-          <Header />
+      <Header />
+
+
           {this.props.children}
         </div>
-      </div>
+
     );
   }
 }

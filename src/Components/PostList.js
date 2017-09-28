@@ -14,10 +14,10 @@ class PostList extends Component {
 
 
     componentDidMount(){
-      fetch('https://tiny-lasagna-server.herokuapp.com/collections/playlisting').then(results => {
+      fetch('https://serene-waters-86956.herokuapp.com/posts/').then(results => {
             return results.json();
           }).then(data => {
-            this.setState({posts: data});
+            this.setState({posts: data.posts});
             console.log("state", this.state.posts);
           })
     }

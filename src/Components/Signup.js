@@ -1,5 +1,8 @@
 import React, {Component} from 'react';
 import '../styles/App.css';
+import Layout from '../Components/Layout.js'
+import request from 'superagent';
+
 
 export default class Signup extends Component {
   constructor() {
@@ -10,6 +13,7 @@ export default class Signup extends Component {
       password: '',
       error: ''
     }
+    this.updateLogin = this.updateLogin.bind(this);
   }
   updateSignup(stateKey) {
     return (event) => {
@@ -19,14 +23,14 @@ export default class Signup extends Component {
   signup(event) {
 
     event.preventDefault();
-    request
+    request()
       .post("https://desolate-harbor-53073.herokuapp.com/api/users/signup/")
       .send({email: this.state.email, password: this.state.password})
       .end((err, res) => {
         if (err) {
           this.setState({error: res.body.error});
         } else {
-          setToken(res.body.token);
+          this.setToken(res.body.token);
         }
       })
   }

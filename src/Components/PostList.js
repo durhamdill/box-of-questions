@@ -28,7 +28,7 @@ class PostList extends Component {
               <div className='container'>
               <Link to="/login">  <input className="btn btn-secondary" type="submit" value="Login" /></Link>
               <Link to="/signup">  <input className="btn btn-secondary" type="submit" value="Sign Up"/></Link>
-                <input className="btn btn-secondary" type="submit" value="Post a Question"/>
+              <Link to="/post-question"><input className="btn btn-secondary" type="submit" value="Post a Question"/></Link>
                 <div className="post-list" onLoad={this.fetchData}>
                   {this.state.posts.map((post) => <PostItem post={post} key={post.id} />)}
                 </div>

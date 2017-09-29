@@ -7,8 +7,6 @@ import {BrowserRouter} from 'react-router-dom';
 import {Redirect} from 'react-router';
 
 
-
-
 export default class Signup extends Component {
   constructor() {
     super();

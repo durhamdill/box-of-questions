@@ -3,12 +3,13 @@ import '../styles/App.css';
 import request from 'superagent';
 
 export default class PostQuestion extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       topic: '',
       body: '',
-      error: ''
+      error: '',
+      token: this.props.token
     }
   }
 updateAddQuestion(stateKey) {
@@ -20,11 +21,12 @@ updateAddQuestion(stateKey) {
 
 addQuestion(event) {
   console.log(this.state);
-
+  let newPost = ({post: {token: this.state.token, topic: this.state.topic, body: this.state.body}});
   event.preventDefault();
     request
-      .post("https://serene-waters-86956.herokuapp.com/posts")
-      .send({post: {topic: this.state.topic, body: this.state.body}})
+      .post("https://serene-waters-86956.herokuapp.com/posts/")
+      .set('Authorization', 'Token token='+this.props.token)
+      .send(newPost)
       .end((err, res) => {
         if (err) {
           console.log("error");

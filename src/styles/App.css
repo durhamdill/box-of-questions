@@ -52,14 +52,6 @@
   font-size: 18px;
 }
 
-/*.card-title.header {
-  background: steelblue;
-  color: white;
-  padding: 10px;
-
-  border-radius: 5px;
-}*/
-
 .card-title.headline {
   font-size: 18px;
   text-align: left;
@@ -69,4 +61,10 @@
 
 .btn-group-lg>.btn, .btn-lg {
   margin: 15px;
+}
+
+.btn-secondary {
+  font-family: 'Sedgwick Ave', cursive;
+  background-color: steelblue;
+  color: white;
 }

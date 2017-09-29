@@ -33,19 +33,19 @@ class PostDetail extends Component {
                 <Link to="/signup">  <input className="btn btn-secondary" type="submit" value="Sign Up"/></Link>
                 <input className="btn btn-secondary" type="submit" value="Post a Question"/>
 
-                <div className="card">
+                <div className="card question">
                   <div className="card-block" key={this.state.post.id}>
-                    <h4 className="card-title">Topic: {this.state.post.topic}</h4>
-                    <p className="card-text">Description: {this.state.post.body}</p>
+                    <h4 className="card-title">{this.state.post.topic}</h4>
+                    <p className="card-text">{this.state.post.body}</p>
                     <p className="card-text text-muted">User: {this.state.post.user_id}</p>
                   </div>
                 </div>
 
                 <div>
-                  <h4 className="card-title">Answers</h4>
+                  <h4 className="card-title headline">Community Answers:</h4>
                   {this.state.answers.map( (answer) => {
-                    return <div className="card">
-                      <div className="card-block" key={this.state.post.id}>
+                    return <div className="card" key={answer.id}>
+                      <div className="card-block">
                         <p>{answer.body}</p>
                         <p className="card-text text-muted">User: {answer.user}</p>
                       </div>

@@ -9,24 +9,30 @@ import Signup from '../Components/Signup.js';
 
 
 export default class BaseLayout extends Component {
-  constructor() {
-      super();
+  constructor(props) {
+      super(props);
       this.state = {
-        token: null
+        
       }
     }
 
     componentWillMount() {
-      this.setState({token: cookie.load('token')});
+      this.setState({
+        token: cookie.load('token'),
+        username: cookie.load('username')
+      });
       console.log(cookie);
     }
 
-    setToken(token) {
-      this.setState({token: token});
+    setToken(token, username) {
+      this.setState({
+        token: token,
+        username: username
+      });
+      console.log(this.state.username);
       cookie.save('token', token);
+      cookie.save('username', username);
     }
-
-
 
   render() {
 

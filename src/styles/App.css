@@ -39,9 +39,24 @@
   text-align: left;
 }
 
+.card.question {
+  border: 1px solid steelblue;
+}
+
+/*.card.answer {
+  border: 1px solid #F6C08D;
+}*/
+
 .card-title {
   color: steelblue;
+  font-size: 18px;
+}
 
+.card-title.headline {
+  font-size: 18px;
+  text-align: left;
+  padding: 5px 0 0 5px;
+  color: black;
 }
 
 .btn-group-lg>.btn, .btn-lg {

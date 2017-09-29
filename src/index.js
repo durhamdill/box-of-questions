@@ -16,11 +16,13 @@ import Login from './Components/Login.js';
 import Signup from './Components/Signup.js';
 import PostAnswer from './Components/PostAnswer.js';
 import PostQuestion from './Components/PostQuestion.js';
+import PostDetail from './Components/PostDetail.js';
 
 ReactDOM.render(
   <BrowserRouter>
     <BaseLayout>
       <Switch>
+        <Route path='/post-detail' component={PostDetail} />
         <Route path='/post-question' component={PostQuestion} />
         <Route path='/post-answer' component={PostAnswer} />
         <Route path='/signup' component={Signup} />

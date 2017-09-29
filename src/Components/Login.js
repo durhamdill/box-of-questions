@@ -3,7 +3,7 @@ import '../styles/App.css';
 import Layout from '../Components/Layout.js';
 import request from 'superagent';
 import {Link} from 'react-router-dom';
-
+import cookie from 'react-cookies';
 
 export default class Login extends Component {
   constructor() {
@@ -24,7 +24,7 @@ export default class Login extends Component {
     login(event) {
 
       console.log(this.state.email, this.state.password);
-
+      console.log(cookie)
       event.preventDefault();
         request
           .post("https://serene-waters-86956.herokuapp.com/users/login")

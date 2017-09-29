@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  
+
 }
 
 .App-logo {
@@ -41,8 +41,15 @@
 
 .card-title {
   color: steelblue;
+
 }
 
 .btn-group-lg>.btn, .btn-lg {
   margin: 15px;
+}
+
+.btn-secondary {
+  font-family: 'Sedgwick Ave', cursive;
+  background-color: steelblue;
+  color: white;
 }
